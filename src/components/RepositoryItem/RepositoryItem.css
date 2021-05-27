@@ -1,0 +1,9 @@
+.repository-item {
+    display: flex;
+ 
+}
+.repository-item-avatar-url{
+  width: 4rem;
+  margin: 1rem;
+  
+} 

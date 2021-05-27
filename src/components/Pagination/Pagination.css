@@ -1,0 +1,9 @@
+.pagination-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pagination-list-item{
+    margin: 1rem;
+}

@@ -1,15 +1,16 @@
 import React from "react";
+import "./RepositoryItem.css"
 
 function RepositoryItem({repository}){
     return(
         <li className="repository-item">
-            <img className="avatar-url" src={repository.avatar_url} alt="repository avatar"></img>
+            <img className="repository-item-avatar-url" src={repository.avatar_url} alt="repository avatar"></img>
             <a
             href={repository.html_url}
             target="_blank"
             rel="noopener noreferrer"
             >
-            {repository.login}
+            <p>{repository.login}</p>
             </a> 
         </li>
     )

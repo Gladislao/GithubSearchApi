@@ -1,4 +1,5 @@
 import React from "react"
+import "./Pagination.css"
 
 function Pagination ({totalCount, handlePagination}){
   console.log("totalCount", totalCount)
@@ -11,10 +12,10 @@ function Pagination ({totalCount, handlePagination}){
     pageNumbers.push(i)
   }
   return (
-  <nav>
-    <ul>
+  <nav >
+    <ul className="pagination-list" >
       {pageNumbers.map(number => (
-        <li key={number}>
+        <li key={number} className="pagination-list-item">
           <a onClick={handlePagination(number)} href='!#'>
             {number}
           </a>
