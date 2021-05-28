@@ -1,22 +1,27 @@
-import React from "react"
+import React, {useMemo} from "react"
 import "./Pagination.css"
 
+const DEFAULT_GITHUB_LIMIT = 30;  //Default value used by Github Search API 
+
 function Pagination ({totalCount, handlePagination}){
-  console.log("totalCount", totalCount)
-  const limit = 30;  //Default value used by Github Search API 
-  const pageNumbers = []
-  const numberOfPages = Math.ceil(totalCount/limit)
   
-  
-  for(let i=1; i<= numberOfPages; i++){
-    pageNumbers.push(i)
-  }
+  const numberOfPages = Math.ceil(totalCount/DEFAULT_GITHUB_LIMIT)
+  const pageNumbers = useMemo(() => {
+    let numbers = []
+    if(Math.ceil(totalCount/DEFAULT_GITHUB_LIMIT)) {
+     for(let i=1; i<= numberOfPages; i++){
+      numbers.push(i)
+      }
+    } 
+   return numbers
+  }, [totalCount, numberOfPages])
+
   return (
   <nav >
     <ul className="pagination-list" >
-      {pageNumbers.map(number => (
+      {pageNumbers?.map(number => (
         <li key={number} className="pagination-list-item">
-          <a onClick={handlePagination(number)} href='!#'>
+          <a onClick={()=>handlePagination(number)} href='!#'>
             {number}
           </a>
         </li>))}
